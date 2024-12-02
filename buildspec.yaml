@@ -1,4 +1,13 @@
 version: 0.2
+env:
+  variables:
+    app_name: "myapp"
+  # SSM Parameter Store Values
+  # parameter-store:
+  # sercret from aws secret manager
+  # secret-manager:
+
+  
 phases:
   install:
     commands:
