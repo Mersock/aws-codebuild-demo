@@ -1,7 +1,8 @@
 version: 0.2
 env:
   variables:
-    app_name: "myapp"
+    APP_NAME: "myapp"
+    TAG: "latest"
   # SSM Parameter Store Values
   # parameter-store:
   # sercret from aws secret manager
@@ -33,14 +34,14 @@ phases:
         - echo $DOCKER_USERNAME
         - echo $DOCKER_PASSWORD
         - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-        # - aws ecr get-login-password --region ap-southeast-1 | docker login --username $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
+        - env
 
   build:
     commands:
       # Build Docker Image
       - echo "Build started on `date`"
       - echo "Building the Docker image..."
-      # - docker build --tag $REPOSITORY_URI:$TAG .
+      - docker build --tag $APP_NAME:$TAG .
   post_build:
     commands:
       # Push Docker Image to ECR Repository
