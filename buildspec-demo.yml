@@ -23,8 +23,8 @@ phases:
         - echo "Verify AWS CLI Version..."
         - aws --version
         # Login to ECR Registry for docker to push the image to ECR Repository
-        - echo "Login in to Amazon ECR..."
-        - $(aws ecr get-login --no-include-email)
+        # - echo "Login in to Amazon ECR..."
+        # - $(aws ecr get-login --no-include-email)
         # Update Kube config Home Directory
         # - export KUBECONFIG=$HOME/.kube/config
         - echo "show env"
