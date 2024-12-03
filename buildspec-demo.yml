@@ -31,6 +31,8 @@ phases:
         # - export KUBECONFIG=$HOME/.kube/config
         # - echo "show env"
         # - env 
+        - echo $DOCKER_USERNAME
+        - echo $DOCKER_PASSWORD
         - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - env
   build:
