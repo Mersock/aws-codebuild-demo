@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    APP_NAME: "myapp"
+    APP_NAME: "codebuild-demo"
     # SSM Parameter Store Values
     # parameter-store:
     # sercret from aws secret manager
@@ -31,8 +31,8 @@ phases:
     commands:
       - echo "Pushing the Docker image to ECR Repository"   
       - aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin $ECR_URL     
-      - docker tag $APP_NAME:$TAG $ECR_URL/codebuild-demo:$TAG 
-      - docker push $ECR_URL/codebuild-demo:$TAG 
+      - docker tag $APP_NAME:$TAG $ECR_URL/$APP_NAME:$TAG 
+      - docker push $ECR_URL/$APP_NAME:$TAG 
 # artifacts:
 #   files: 
 #     - build.json   
