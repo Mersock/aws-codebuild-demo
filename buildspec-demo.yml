@@ -5,7 +5,9 @@ env:
   # SSM Parameter Store Values
   # parameter-store:
   # sercret from aws secret manager
-  # secret-manager:
+  secret-manager:
+    DOCKER_USERNAME: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:mersock
+    DOCKER_PASSWORD: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:dckr_pat_sk92wD8aaWbwP8rJu8oGazed-3I
 
   
 phases:
@@ -20,21 +22,23 @@ phases:
         # - echo "Update Image tag in kube-manifest..."
         # - sed -i 's@CONTAINER_IMAGE@'"$REPOSITORY_URI:$TAG"'@' kube-manifests/deployment.yml
         # Verify AWS CLI Version        
-        - echo "Verify AWS CLI Version..."
-        - aws --version
+        # - echo "Verify AWS CLI Version..."
+        # - aws --version
         # Login to ECR Registry for docker to push the image to ECR Repository
         # - echo "Login in to Amazon ECR..."
         # - $(aws ecr get-login --no-include-email)
         # Update Kube config Home Directory
         # - export KUBECONFIG=$HOME/.kube/config
-        - echo "show env"
+        # - echo "show env"
+        # - env 
+        - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         - env
   build:
     commands:
       # Build Docker Image
       - echo "Build started on `date`"
       - echo "Building the Docker image..."
-      # - docker build --tag $REPOSITORY_URI:$TAG .
+      - docker build --tag $REPOSITORY_URI:$TAG .
   post_build:
     commands:
       # Push Docker Image to ECR Repository
