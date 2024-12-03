@@ -2,10 +2,9 @@ version: 0.2
 env:
   variables:
     APP_NAME: "myapp"
-    TAG: "latest"
-  # SSM Parameter Store Values
-  # parameter-store:
-  # sercret from aws secret manager
+    # SSM Parameter Store Values
+    # parameter-store:
+    # sercret from aws secret manager
   secrets-manager:
     DOCKER_USERNAME: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:username
     DOCKER_PASSWORD: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:token
@@ -34,12 +33,12 @@ phases:
         - echo $DOCKER_USERNAME
         - echo $DOCKER_PASSWORD
         - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+        - TAG="git describe --tags --abbrev=0"
         - env
 
   build:
     commands:
       # Build Docker Image
-      - echo "Build started on `date`"
       - echo "Building the Docker image..."
       - docker build --tag $APP_NAME:$TAG .
   post_build:
