@@ -33,7 +33,7 @@ phases:
         - echo $DOCKER_USERNAME
         - echo $DOCKER_PASSWORD
         - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-        - TAG="git describe --tags --abbrev=0"
+        - TAG="$(git describe --tags --abbrev=0)"
         - env
 
   build:
