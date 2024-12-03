@@ -5,7 +5,7 @@ env:
   # SSM Parameter Store Values
   # parameter-store:
   # sercret from aws secret manager
-  secret-manager:
+  secrets-manager:
     DOCKER_USERNAME: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:username
     DOCKER_PASSWORD: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:token
   
