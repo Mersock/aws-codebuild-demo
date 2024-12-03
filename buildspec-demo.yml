@@ -6,8 +6,8 @@ env:
   # parameter-store:
   # sercret from aws secret manager
   secret-manager:
-    DOCKER_USERNAME: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:mersock
-    DOCKER_PASSWORD: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:dckr_pat_sk92wD8aaWbwP8rJu8oGazed-3I
+    DOCKER_USERNAME: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:username
+    DOCKER_PASSWORD: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:token
 
   
 phases:
