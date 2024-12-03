@@ -32,8 +32,8 @@ phases:
         # - env 
         - echo $DOCKER_USERNAME
         - echo $DOCKER_PASSWORD
-        - aws ecr get-login-password --region ap-southeast-1 | docker login --username $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
-        - env
+        # - aws ecr get-login-password --region ap-southeast-1 | docker login --username $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
+
   build:
     commands:
       # Build Docker Image
