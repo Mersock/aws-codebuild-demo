@@ -1,14 +1,14 @@
 version: 0.2
 env:
   variables:
-    APP_NAME: "codebuild-demo"
+    APP_NAME: "codebuild-demo" # <<<< Application Name
     # SSM Parameter Store Values
     # parameter-store:
     # sercret from aws secret manager
   secrets-manager:
-    DOCKER_USERNAME: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:username
-    DOCKER_PASSWORD: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:token
-    ECR_URL: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:ecr-url
+    DOCKER_USERNAME: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:username # <<<< Using ARN AWS secrets manager
+    DOCKER_PASSWORD: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:token # <<<< Using ARN AWS secrets manager
+    ECR_URL: arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN:ecr-url # <<<< Using ECR URL
   
 phases:
   install:

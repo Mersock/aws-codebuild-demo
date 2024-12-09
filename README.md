@@ -42,7 +42,7 @@ git push -uf origin main
 				"ecr:PutImage",
 				"ecr:BatchGetImage"
 			],
-			"Resource": "arn:aws:ecr:ap-southeast-1:340752821097:repository/codebuild-demo"
+			"Resource": "arn:aws:ecr:ap-southeast-1:340752821097:repository/codebuild-demo"   // <<<< Using ARN from ECR
 		},
 		{
 			"Effect": "Allow",
@@ -64,7 +64,7 @@ git push -uf origin main
 				"secretsmanager:GetSecretValue"
 			],
 			"Effect": "Allow",
-			"Resource": "arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN"
+			"Resource": "arn:aws:secretsmanager:ap-southeast-1:340752821097:secret:nicely/codebuild-demo-9SPwfN"  // # <<<< Using ARN AWS secrets manager
 		}
 	]
 }
